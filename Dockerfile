@@ -26,7 +26,4 @@ COPY . .
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
-
-
-# Set the command to run the application with Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--timeout", "1800", "app:app"]
