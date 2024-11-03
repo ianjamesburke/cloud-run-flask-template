@@ -5,7 +5,6 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /app
 
-
 # System dependencies for video processing
 
 # RUN apt-get update && apt-get install -y \
@@ -27,5 +26,7 @@ COPY . .
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
-# Command to run your app
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
+
+
+# Set the command to run the application with Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--timeout", "1800", "app:app"]
